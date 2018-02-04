@@ -17,25 +17,30 @@ window.onload = function() {
         game.load.image( 'logo', 'assets/phaser.png' );
     }
     
-    var bouncy;
+    var char_rouge;
+
+    var upKey;
+    var downKey;
+    var leftKey;
+    var rightKey
     
     function create() {
         // Create a sprite at the center of the screen using the 'logo' image.
-        bouncy = game.add.sprite( game.world.centerX, game.world.centerY, 'logo' );
+        char_rouge = game.add.sprite( game.world.centerX, game.world.centerY, 'logo' );
         // Anchor the sprite at its center, as opposed to its top-left corner.
         // so it will be truly centered.
-        bouncy.anchor.setTo( 0.5, 0.5 );
+        char_rouge.anchor.setTo( 0.5, 0.5 );
         
         // Turn on the arcade physics engine for this sprite.
         game.physics.enable( bouncy, Phaser.Physics.ARCADE );
         // Make it bounce off of the world bounds.
-        bouncy.body.collideWorldBounds = true;
+        char_rouge.body.collideWorldBounds = true;
 
         // Borrowed from Phaser Examples, is identical to code on website -------
-        upKey = game.input.keyboard.addKey(Phaser.Keyboard.UP)
-        downKey = game.input.keyboard.addKey(Phaser.Keyboard.DOWN)
-        leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT)
-        rightKey = game.input.keyboard.addKey(Phaser.Keyboard.RIGHT)
+        upKey = game.input.keyboard.addKey(Phaser.Keyboard.W)
+        downKey = game.input.keyboard.addKey(Phaser.Keyboard.S)
+        leftKey = game.input.keyboard.addKey(Phaser.Keyboard.A)
+        rightKey = game.input.keyboard.addKey(Phaser.Keyboard.D)
         // Adam REMINDER, don't forget to look into
         // addKeys(keys: any): any;
         // for alternate input
@@ -53,17 +58,17 @@ window.onload = function() {
         // Borrowed from Phaser Examples -------------
         // Used to move the character around in chucks on the screen, for tiled based games.
         if (upKey.isDown){
-            sprite.y+10;
+            char_rouge.y+10;
         }
         else if (downKey.isDown){
-            sprite.y-10;
+            char_rouge.y-10;
         }
 
         if (leftKey.isDown){
-            sprite.x+10;
+            char_rouge.x+10;
         }
         else if (rightKey.isDown){
-            sprite.x-10;
+            char_rouge.x-10;
         }
     }
 };
