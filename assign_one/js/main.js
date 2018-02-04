@@ -14,7 +14,7 @@ window.onload = function() {
     
     function preload() {
         // Load an image and call it 'logo'.
-        game.load.image( 'logo', 'assets/phaser.png' );
+        game.load.image( 'char', 'assets/char_dig_one.png' );
         game.load.image( 'background', 'assets/background_handmade.png')
     }
 
@@ -29,8 +29,16 @@ window.onload = function() {
     function create() {
 
         // background
-        background = game.add.tileSprite(0, 0, 1600, 800, 'background'); 
-        sprite = game.add.sprite(50, 50, 'logo');
+        background = game.add.tileSprite(0, 0, 1600, 800, 'background');
+        // character
+        sprite = game.add.sprite(0, 0, 'char');
+
+        sprite.anchor.setTo( 0.5, 0.5 );
+        
+        // Turn on the arcade physics engine for this sprite.
+        game.physics.enable( sprite, Phaser.Physics.ARCADE );
+
+        sprite.body.collideWorldBounds = true;
 
         //  In this example we'll create 4 specific keys (up, down, left, right) and monitor them in our update function
 
@@ -45,20 +53,20 @@ window.onload = function() {
 
         if (upKey.justDown)
         {
-            sprite.y -= 40;
+            sprite.y -= 100;
         }
         else if (downKey.justDown)
         {
-            sprite.y += 40;
+            sprite.y += 100;
         }
 
         if (leftKey.justDown)
         {
-            sprite.x -= 40;
+            sprite.x -= 100;
         }
         else if (rightKey.justDown)
         {
-            sprite.x += 40;
+            sprite.x += 100;
         }
     }
 
