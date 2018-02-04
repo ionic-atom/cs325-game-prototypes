@@ -30,6 +30,15 @@ window.onload = function() {
         game.physics.enable( bouncy, Phaser.Physics.ARCADE );
         // Make it bounce off of the world bounds.
         bouncy.body.collideWorldBounds = true;
+
+        // Borrowed from Phaser Examples, is identical to code on website -------
+        upKey = game.input.keyboard.addKey(Phaser.Keyboard.UP)
+        downKey = game.input.keyboard.addKey(Phaser.Keyboard.DOWN)
+        leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT)
+        rightKey = game.input.keyboard.addKey(Phaser.Keyboard.RIGHT)
+        // Adam REMINDER, don't forget to look into
+        // addKeys(keys: any): any;
+        // for alternate input
         
         // Add some text using a CSS style.
         // Center it in X, and position its top 15 pixels from the top of the world.
@@ -39,11 +48,22 @@ window.onload = function() {
     }
     
     function update() {
-        // Accelerate the 'logo' sprite towards the cursor,
-        // accelerating at 500 pixels/second and moving no faster than 500 pixels/second
-        // in X or Y.
-        // This function returns the rotation angle that makes it visually match its
-        // new trajectory.
-        bouncy.rotation = game.physics.arcade.accelerateToPointer( bouncy, game.input.activePointer, 500, 500, 500 );
+
+        // Original code was sprite.(x)or(y)[--][++] for over time movement.
+        // Borrowed from Phaser Examples -------------
+        // Used to move the character around in chucks on the screen, for tiled based games.
+        if (upKey.isDown){
+            sprite.y+10;
+        }
+        else if (downKey.isDown){
+            sprite.y-10;
+        }
+
+        if (leftKey.isDown){
+            sprite.x+10;
+        }
+        else if (rightKey.isDown){
+            sprite.x-10;
+        }
     }
 };
