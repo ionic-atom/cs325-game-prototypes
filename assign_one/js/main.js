@@ -14,7 +14,7 @@ window.onload = function() {
     
     function preload() {
         // Load character and background
-        game.load.spritesheet( 'char', 'assets/char_idle.png', 100, 100, 48);
+        game.load.spritesheet( 'char', 'assets/spritesheet_idle.png', 100, 100, 48);
         game.load.image( 'background', 'assets/background_handmade.png');
     }
 
@@ -60,7 +60,11 @@ window.onload = function() {
         // press (move square), release, and press (move sqaure)
         if (upKey.justDown)
         {
-            sprite.y -= 100;
+            var i;
+            for(i = 0; i < 100; i++){
+                sprite.y --; 
+            }
+            i = 0;
         }
         else if (downKey.justDown)
         {
