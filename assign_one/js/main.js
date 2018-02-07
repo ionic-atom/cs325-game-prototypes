@@ -13,13 +13,22 @@ window.onload = function() {
     var game = new Phaser.Game( 1600, 800, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
     
     function preload() {
-        // Load character and background
+        // Load Character and Background
         game.load.spritesheet( 'char', 'assets/spritesheet_idle.png', 100, 100, 48);
         game.load.image( 'background', 'assets/background_handmade.png');
+
+        // Load Enemies
+        game.load.spritesheet( 'en_one', 'assets/spritesheet_idle.png', 100, 100, 48);
+        game.load.spritesheet( 'en_two', 'assets/spritesheet_idle.png', 100, 100, 48);
     }
 
     // char
     var sprite;
+
+    // Enemies
+    var enemy_one
+    var enemy_two
+
     // background
     var background;
 
@@ -37,16 +46,31 @@ window.onload = function() {
         // Character
         sprite = game.add.sprite(0, 0, 'char');
         // Animation
-        var idle = sprite.animations.add('idle');
-        sprite.animations.play('idle', 24, true);
-        // Anchoring sprite to middle
-        //sprite.anchor.setTo( 0.5, 0.5 );
+        var idle = sprite.animations.add('hover');
+        sprite.animations.play('hover', 24, true);
         // Turn on the arcade physics engine for this sprite.
         game.physics.enable( sprite, Phaser.Physics.ARCADE );
         // Collision with world bounds
         sprite.body.collideWorldBounds = true;
 
-        // Key inputs
+        // Enemies
+        enemy_one = game.add.sprite(1200, 200, 'en_one');
+        enemy_two = game.add.sprite(800, 400, 'en_two');
+
+
+        var en_idle = enemy_one.animations.add('hover');
+        var en_idle = enemy_two.animations.add('hover');
+        enemy_one.animations.play('hover', 24, true);
+        enemy_two.animations.play('hover', 24, true);
+        // Turn on the arcade physics engine for this sprite.
+        game.physics.enable( enemy_one, Phaser.Physics.ARCADE );
+        game.physics.enable( enemy_two, Phaser.Physics.ARCADE );
+        // Collision with world bounds
+        enemy_one.body.collideWorldBounds = true;
+        enemy_two.body.collideWorldBounds = true;
+
+
+        // Key inputs for char
         upKey = game.input.keyboard.addKey(Phaser.Keyboard.UP);
         downKey = game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
         leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
@@ -58,26 +82,28 @@ window.onload = function() {
 
         // Movement updates, justDown is used so there must be a
         // press (move square), release, and press (move sqaure)
-        if (upKey.justDown)
-        {
-            var i;
-            for(i = 0; i < 100; i++){
-                sprite.y --; 
-            }
-            i = 0;
+        if (upKey.justDown){
+            sprite.y -= 100;
+            enemy_one.y += 100;
+            enemy_two.y += 100;
         }
-        else if (downKey.justDown)
-        {
+        else if (downKey.justDown){
             sprite.y += 100;
+            enemy_one.y -= 100;
+            enemy_two.y -= 100;
         }
 
-        if (leftKey.justDown)
-        {
+        if (leftKey.justDown){
             sprite.x -= 100;
+            enemy_one.x += 100;
+            enemy_two.x += 100;
         }
-        else if (rightKey.justDown)
-        {
+        else if (rightKey.justDown){
             sprite.x += 100;
+            enemy_one.x -= 100;
+            enemy_two.x -= 100;
         }
+
     }
+    
 };
