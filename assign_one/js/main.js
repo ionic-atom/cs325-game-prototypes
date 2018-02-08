@@ -31,6 +31,11 @@ window.onload = function() {
     var enemy_two;
     var enemy_three;
 
+    // Enemy Pits
+    var enpit_one;
+    var enpit_two;
+    var enpit_three;
+
     // background
     var background;
 
@@ -42,11 +47,31 @@ window.onload = function() {
 
     function create() {
 
-        // Background
+        // Background ===============================================
         background = game.add.tileSprite(0, 0, 1600, 800, 'background');
 
-        // Character
-        sprite = game.add.sprite(0, 0, 'char');
+        enpit_one = game.add.sprite(1600, 0, 'en_one');
+        enpit_two = game.add.sprite(1600, 800, 'en_two');
+        enpit_three = game.add.sprite(0, 800, 'en_three');
+
+        var enpit_one_an = enpit_one.animations.add('stay1');
+        var enpit_two_an = enpit_two.animations.add('stay2');
+        var enpit_three_an = enpit_three.animations.add('stay3');
+        enpit_one.animations.play('stay1', 24, true);
+        enpit_two.animations.play('stay2', 24, true);
+        enpit_three.animations.play('stay3', 24, true);
+        // Turn on the arcade physics engine for this sprite.
+        game.physics.enable( enpit_one, Phaser.Physics.ARCADE );
+        game.physics.enable( enpit_two, Phaser.Physics.ARCADE );
+        game.physics.enable( enpit_three, Phaser.Physics.ARCADE );
+        // Collision with world bounds
+        enpit_one.body.collideWorldBounds = true;
+        enpit_two.body.collideWorldBounds = true;
+        enpit_three.body.collideWorldBounds = true;
+        // ==========================================================
+
+        // Character ================================================
+        sprite = game.add.sprite(300, 0, 'char');
         // Animation
         var idle = sprite.animations.add('hover');
         sprite.animations.play('hover', 24, true);
@@ -54,16 +79,20 @@ window.onload = function() {
         game.physics.enable( sprite, Phaser.Physics.ARCADE );
         // Collision with world bounds
         sprite.body.collideWorldBounds = true;
+        // Key inputs for character
+        upKey = game.input.keyboard.addKey(Phaser.Keyboard.UP);
+        downKey = game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
+        leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
+        rightKey = game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
+        // ==========================================================
 
-        // Enemies
+        // Enemies ==================================================
         enemy_one = game.add.sprite(1200, 200, 'en_one');
         enemy_two = game.add.sprite(800, 400, 'en_two');
         enemy_three = game.add.sprite(1600, 600, 'en_three');
-
         var en_idle1 = enemy_one.animations.add('hover1');
         var en_idle2 = enemy_two.animations.add('hover2');
         var en_idle2 = enemy_three.animations.add('hover3');
-
         enemy_one.animations.play('hover1', 24, true);
         enemy_two.animations.play('hover2', 24, true);
         enemy_three.animations.play('hover3', 24, true);
@@ -75,46 +104,117 @@ window.onload = function() {
         enemy_one.body.collideWorldBounds = true;
         enemy_two.body.collideWorldBounds = true;
         enemy_three.body.collideWorldBounds = true;
-
-
-        // Key inputs for char
-        upKey = game.input.keyboard.addKey(Phaser.Keyboard.UP);
-        downKey = game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
-        leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
-        rightKey = game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
-
+        // ==========================================================
     }
 
     function update() {
 
         // Movement updates, justDown is used so there must be a
         // press (move square), release, and press (move sqaure)
-        if (upKey.justDown){
+        if (upKey.justDown && sprite.y != 0){
             sprite.y -= 100;
-            enemy_one.y += 100;
-            enemy_two.y += 100;
-            enemy_three.y += 100;
+            // Enemy_one (Brown Rock)
+            if ((enemy_one.y == 0) && (enemy_one.x = 1500)){
+                //enemy_one.y = -100;
+            }
+            else{
+                enemy_one.y -= 100;
+            }
+
+            // Enemy_two (Red Rock)
+            if ((enemy_two.y == 700) && (enemy_two.x == 1500)){
+                //enemy_two.y -= 100;
+            }
+            else{
+                enemy_two.y -= 100;
+            }
+
+            // Enemy_three (Purple Rock)
+            if ((enemy_three.y == 700) && (enemy_three.x == 0)){
+                //enemy_three.y += 100;
+            }
+            else{
+                enemy_three.y -= 100;
+            }
+
         }
-        else if (downKey.justDown){
+        else if (downKey.justDown && sprite.y != 700){
             sprite.y += 100;
-            enemy_one.y -= 100;
-            enemy_two.y -= 100;
-            enemy_three.y -= 100;
-        }
+            // Enemy_one (Brown Rock)
+            if ((enemy_one.y == 0) && (enemy_one.x == 1500)){
+                //enemy_one.y += 100;
+            }
+            else{
+                enemy_one.y += 100;
+            }
 
-        if (leftKey.justDown){
+            // Enemy_two (Red Rock)
+            if ((enemy_two.y == 700) && (enemy_two.x == 1500)){
+                //enemy_two.y -= 100;
+            }
+            else{
+                enemy_two.y += 100;
+            }
+
+            // Enemy_three (Purple Rock)
+            if ((enemy_three.y == 700) && (enemy_three.x == 0)){
+                //enemy_three.y -= 100;
+            }
+            else{
+                enemy_three.y += 100;
+            }
+        }
+        if (leftKey.justDown && sprite.x != 0){
             sprite.x -= 100;
-            enemy_one.x += 100;
-            enemy_two.x += 100;
-            enemy_three.x += 100;
-        }
-        else if (rightKey.justDown){
-            sprite.x += 100;
-            enemy_one.x -= 100;
-            enemy_two.x -= 100;
-            enemy_three.x -= 100;
-        }
+            // Enemy_one (Brown Rock)
+            if ((enemy_one.y == 0) && (enemy_one.x == 1500)){
+                //enemy_one.x += 100;
+            }
+            else{
+                enemy_one.x -= 100;
+            }
 
+            // Enemy_two (Red Rock)
+            if ((enemy_two.y == 700) && (enemy_two.x == 1500)){
+                //enemy_two.x += 100;
+            }
+            else{
+                enemy_two.x -= 100;
+            }
+
+            // Enemy_three (Purple Rock)
+            if ((enemy_three.y == 700) && (enemy_three.x == 0)){
+                //enemy_three.x -= 100;
+            }
+            else{
+                enemy_three.x -= 100;
+            }
+        }
+        else if (rightKey.justDown && sprite.x != 1500){
+            sprite.x += 100;
+            // Enemy_one (Brown Rock)
+            if ((enemy_one.y == 0) && (enemy_one.x == 1500)){
+                //enemy_one.x += 100;
+            }
+            else{
+                enemy_one.x += 100;
+            }
+
+            // Enemy_two (Red Rock)
+            if ((enemy_two.y == 700) && (enemy_two.x == 1500)){
+                //enemy_two.x -= 100;
+            }
+            else{
+                enemy_two.x += 100;
+            }
+
+            // Enemy_three (Purple Rock)
+            if ((enemy_three.y == 700) && (enemy_three.x == 0)){
+                //enemy_three.x -= 100;
+            }
+            else{
+                enemy_three.x += 100;
+            }
+        }
     }
-    
 };
