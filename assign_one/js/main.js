@@ -118,33 +118,6 @@ window.onload = function() {
                 //enemy_one.y = -100;
             }
             else{
-                enemy_one.y -= 100;
-            }
-
-            // Enemy_two (Red Rock)
-            if ((enemy_two.y == 700) && (enemy_two.x == 1500)){
-                //enemy_two.y -= 100;
-            }
-            else{
-                enemy_two.y -= 100;
-            }
-
-            // Enemy_three (Purple Rock)
-            if ((enemy_three.y == 700) && (enemy_three.x == 0)){
-                //enemy_three.y += 100;
-            }
-            else{
-                enemy_three.y -= 100;
-            }
-
-        }
-        else if (downKey.justDown && sprite.y != 700){
-            sprite.y += 100;
-            // Enemy_one (Brown Rock)
-            if ((enemy_one.y == 0) && (enemy_one.x == 1500)){
-                //enemy_one.y += 100;
-            }
-            else{
                 enemy_one.y += 100;
             }
 
@@ -158,40 +131,41 @@ window.onload = function() {
 
             // Enemy_three (Purple Rock)
             if ((enemy_three.y == 700) && (enemy_three.x == 0)){
-                //enemy_three.y -= 100;
+                //enemy_three.y += 100;
             }
             else{
                 enemy_three.y += 100;
             }
+
         }
-        if (leftKey.justDown && sprite.x != 0){
-            sprite.x -= 100;
+        else if (downKey.justDown && sprite.y != 700){
+            sprite.y += 100;
             // Enemy_one (Brown Rock)
             if ((enemy_one.y == 0) && (enemy_one.x == 1500)){
-                //enemy_one.x += 100;
+                //enemy_one.y += 100;
             }
             else{
-                enemy_one.x -= 100;
+                enemy_one.y -= 100;
             }
 
             // Enemy_two (Red Rock)
             if ((enemy_two.y == 700) && (enemy_two.x == 1500)){
-                //enemy_two.x += 100;
+                //enemy_two.y -= 100;
             }
             else{
-                enemy_two.x -= 100;
+                enemy_two.y -= 100;
             }
 
             // Enemy_three (Purple Rock)
             if ((enemy_three.y == 700) && (enemy_three.x == 0)){
-                //enemy_three.x -= 100;
+                //enemy_three.y -= 100;
             }
             else{
-                enemy_three.x -= 100;
+                enemy_three.y -= 100;
             }
         }
-        else if (rightKey.justDown && sprite.x != 1500){
-            sprite.x += 100;
+        if (leftKey.justDown && sprite.x != 0){
+            sprite.x -= 100;
             // Enemy_one (Brown Rock)
             if ((enemy_one.y == 0) && (enemy_one.x == 1500)){
                 //enemy_one.x += 100;
@@ -202,7 +176,7 @@ window.onload = function() {
 
             // Enemy_two (Red Rock)
             if ((enemy_two.y == 700) && (enemy_two.x == 1500)){
-                //enemy_two.x -= 100;
+                //enemy_two.x += 100;
             }
             else{
                 enemy_two.x += 100;
@@ -214,6 +188,32 @@ window.onload = function() {
             }
             else{
                 enemy_three.x += 100;
+            }
+        }
+        else if (rightKey.justDown && sprite.x != 1500){
+            sprite.x += 100;
+            // Enemy_one (Brown Rock)
+            if ((enemy_one.y == 0) && (enemy_one.x == 1500)){
+                //enemy_one.x += 100;
+            }
+            else{
+                enemy_one.x -= 100;
+            }
+
+            // Enemy_two (Red Rock)
+            if ((enemy_two.y == 700) && (enemy_two.x == 1500)){
+                //enemy_two.x -= 100;
+            }
+            else{
+                enemy_two.x -= 100;
+            }
+
+            // Enemy_three (Purple Rock)
+            if ((enemy_three.y == 700) && (enemy_three.x == 0)){
+                //enemy_three.x -= 100;
+            }
+            else{
+                enemy_three.x -= 100;
             }
         }
     }
