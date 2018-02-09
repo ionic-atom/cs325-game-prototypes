@@ -42,40 +42,42 @@ window.onload = function() {
 	    //	Enable p2 physics
 	    game.physics.startSystem(Phaser.Physics.P2JS);
         //  Make things a bit more bouncey
-        game.physics.p2.defaultRestitution = 0.8;
+        game.physics.p2.gravity.y = 300;
+        game.physics.p2.restitution = 0.8;
         //  Add a sprite
 	    sprite = game.add.sprite(200, 200, 'chicken');
         //  Enable if for physics. This creates a default rectangular body.
 	    game.physics.p2.enable(sprite);
         //  Modify a few body properties
 	    sprite.body.setZeroDamping();
-	    sprite.body.fixedRotation = true;
-        text = game.add.text(20, 20, 'move with arrow keys', { fill: '#ffffff' });
+        sprite.body.fixedRotation = true;
+        
+        //text = game.add.text(20, 20, 'move with arrow keys', { fill: '#ffffff' });
 
         //cursors = game.input.keyboard.createCursorKeys();
 
-        upKey = game.input.keyboard.addKey(Phaser.Key.W);
-        downKey = game.input.keyboard.addKey(Phaser.Key.S);
-        leftKey = game.input.keyboard.addKey(Phaser.Key.A);
-        rightKey = game.input.keyboard.addKey(Phaser.Key.D);
+        upKey = game.input.keyboard.addKey(Phaser.Keyboard.W);
+        downKey = game.input.keyboard.addKey(Phaser.Keyboard.S);
+        leftKey = game.input.keyboard.addKey(Phaser.Keyboard.A);
+        rightKey = game.input.keyboard.addKey(Phaser.Keyboard.D);
 
     }
 
     function update() {
 
-        sprite.body.setZeroVelocity();
+        //sprite.body.setZeroVelocity();
 
         if (leftKey.isDown){
-            sprite.body.moveLeft(400);
+            sprite.body.moveLeft(150);
         }
         if (rightKey.isDown){
-            sprite.body.moveRight(400);
+            sprite.body.moveRight(150);
         }
         if (upKey.isDown){
-            sprite.body.moveUp(400);
+            sprite.body.moveUp(150);
         }
         if (downKey.isDown){
-            sprite.body.moveDown(400);
+            sprite.body.moveDown(150);
         }
     }
 };
