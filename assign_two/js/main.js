@@ -35,49 +35,57 @@ window.onload = function() {
     var downKey;
     var leftKey;
     var rightKey;
+    var resetKey;
+
+    // Jump ctr ---- Can jump 4 times without collision
+    var jump_ctr;
 
     function create() {
 
         game.add.image(0, 0, 'sky');
 	    //	Enable p2 physics
 	    game.physics.startSystem(Phaser.Physics.P2JS);
-        //  Make things a bit more bouncey
+        game.physics.p2.setImpactEvents(true);
         game.physics.p2.gravity.y = 300;
-        game.physics.p2.restitution = 0.8;
+        game.physics.p2.restitution = 0.1;
         //  Add a sprite
 	    sprite = game.add.sprite(200, 200, 'chicken');
         //  Enable if for physics. This creates a default rectangular body.
 	    game.physics.p2.enable(sprite);
         //  Modify a few body properties
-	    sprite.body.setZeroDamping();
         sprite.body.fixedRotation = true;
-        
-        //text = game.add.text(20, 20, 'move with arrow keys', { fill: '#ffffff' });
 
-        //cursors = game.input.keyboard.createCursorKeys();
+        jump_ctr = 0;
 
         upKey = game.input.keyboard.addKey(Phaser.Keyboard.W);
         downKey = game.input.keyboard.addKey(Phaser.Keyboard.S);
         leftKey = game.input.keyboard.addKey(Phaser.Keyboard.A);
         rightKey = game.input.keyboard.addKey(Phaser.Keyboard.D);
+        resetKey = game.input.keyboard.addKey(Phaser.Keyboard.E);
 
     }
 
     function update() {
+        
+        sprite.body.applyDamping(0.25);
+        if (resetKey.justDown){
+            sprite.body.setZeroForce();
+            sprite.body.moveDown(2500);
+            jump_ctr = 0;
+        }
 
-        //sprite.body.setZeroVelocity();
-
-        if (leftKey.isDown){
-            sprite.body.moveLeft(150);
+        if (leftKey.justDown){
+            sprite.body.moveLeft(600);
         }
-        if (rightKey.isDown){
-            sprite.body.moveRight(150);
+        if (rightKey.justDown){
+            sprite.body.moveRight(600);
         }
-        if (upKey.isDown){
-            sprite.body.moveUp(150);
+        if (upKey.justDown && (jump_ctr < 4)){
+            sprite.body.moveUp(600);
+            jump_ctr += 1;
         }
-        if (downKey.isDown){
-            sprite.body.moveDown(150);
+        if (downKey.justDown){
+            sprite.body.moveDown(600);
         }
     }
 };
