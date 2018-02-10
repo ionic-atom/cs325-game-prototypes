@@ -17,7 +17,7 @@ window.onload = function() {
         // Load an image and call it 'logo'.
         // game.load.image( 'chicken', 'assets/char.png' );
         game.load.spritesheet( 'chicken', 'assets/spritesheet_idle.png', 100, 100, 48);
-        game.load.image( 'sky', 'assets/sky.jpg')
+        game.load.image( 'sky', 'assets/sky.jpg');
 
     }
     
