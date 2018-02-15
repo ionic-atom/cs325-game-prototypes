@@ -14,21 +14,17 @@ window.onload = function() {
     
     function preload() {
 
-        // Load an image and call it 'logo'.
-        // game.load.image( 'chicken', 'assets/char.png' );
-        game.load.spritesheet( 'chicken', 'assets/spritesheet_idle.png', 100, 100, 48);
-        game.load.image( 'sky', 'assets/sky.jpg');
+        game.load.spritesheet( 'chicken_fly', 'assets/chicken_fly.png', 40, 40, 10);
+        game.load.image( 'sky', 'assets/sky.png');
+        game.load.image( 'wood', 'assets/ground.png')
 
     }
-    
-    //var char;
-    //var upKey;
-    //var downKey;
-    //var leftKey;
-    //var rightKey;
-    
+
+    // char
     var sprite;
-    var cursors;
+
+    // platforms
+    var plank;
 
     // input variables
     var upKey;
@@ -40,50 +36,76 @@ window.onload = function() {
     // Jump ctr ---- Can jump 4 times without collision
     var jump_ctr;
 
+    // animation
+    var fly;
+
+    var platforms;
+    var ground;
+
+
     function create() {
 
+        // adding in sky background
         game.add.image(0, 0, 'sky');
-	    //	Enable p2 physics
+        // Enable p2 physics, collision
+        // I played around with the gravity to get the feel of this lose chicken
+        // The restituion for falling is a graceful fall
 	    game.physics.startSystem(Phaser.Physics.P2JS);
         game.physics.p2.setImpactEvents(true);
         game.physics.p2.gravity.y = 300;
         game.physics.p2.restitution = 0.1;
         //  Add a sprite
-	    sprite = game.add.sprite(200, 200, 'chicken');
-        //  Enable if for physics. This creates a default rectangular body.
+        sprite = game.add.sprite(200, 200, 'chicken_fly');
+        // plank = game.add.sprite(0, 500, 'wood');
+        // game.physics.p2.enable(plank);
+        // Enable if for physics. This creates a default rectangular body.
 	    game.physics.p2.enable(sprite);
         //  Modify a few body properties
         sprite.body.fixedRotation = true;
-
+        // jump count
         jump_ctr = 0;
-
+        // wings flapping animation
+        fly = sprite.animations.add('fly');
+        // input getters
         upKey = game.input.keyboard.addKey(Phaser.Keyboard.W);
         downKey = game.input.keyboard.addKey(Phaser.Keyboard.S);
         leftKey = game.input.keyboard.addKey(Phaser.Keyboard.A);
         rightKey = game.input.keyboard.addKey(Phaser.Keyboard.D);
         resetKey = game.input.keyboard.addKey(Phaser.Keyboard.E);
 
+        platforms = game.add.group();
+        platforms.enableBody = true;
+        ground = platforms.create(0, game.world.height - 64, 'wood');
+        game.physics.p2.enable(ground);
+
     }
 
     function update() {
         
+        // damping for left over forces that are being applied to the body
+        // even after control has been reliquinsed
         sprite.body.applyDamping(0.25);
+        // reset jumps key, thrusts you downward (towards possible danger)
         if (resetKey.justDown){
             sprite.body.setZeroForce();
             sprite.body.moveDown(2500);
             jump_ctr = 0;
         }
-
+        // left movement
         if (leftKey.justDown){
             sprite.body.moveLeft(600);
         }
+        // right movement
         if (rightKey.justDown){
             sprite.body.moveRight(600);
         }
+        // jump key with 4 times before reset can happen
         if (upKey.justDown && (jump_ctr < 4)){
+            sprite.animations.play('fly', 20, false);
             sprite.body.moveUp(600);
             jump_ctr += 1;
         }
+        // downward movement
         if (downKey.justDown){
             sprite.body.moveDown(600);
         }
