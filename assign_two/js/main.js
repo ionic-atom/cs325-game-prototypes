@@ -16,7 +16,7 @@ window.onload = function() {
 
         game.load.spritesheet( 'chicken_fly', 'assets/chicken_fly.png', 40, 40, 10);
         game.load.image( 'sky', 'assets/sky.png');
-        game.load.image( 'wood', 'assets/ground.png')
+        //game.load.image( 'wood', 'assets/ground.png');
 
     }
 
@@ -51,21 +51,30 @@ window.onload = function() {
         // I played around with the gravity to get the feel of this lose chicken
         // The restituion for falling is a graceful fall
 	    game.physics.startSystem(Phaser.Physics.P2JS);
-        game.physics.p2.setImpactEvents(true);
+        //game.physics.p2.gravity.x = 300;
         game.physics.p2.gravity.y = 300;
-        game.physics.p2.restitution = 0.1;
         //  Add a sprite
         sprite = game.add.sprite(200, 200, 'chicken_fly');
         // plank = game.add.sprite(0, 500, 'wood');
-        // game.physics.p2.enable(plank);
+        ///game.physics.p2.enable(plank);
         // Enable if for physics. This creates a default rectangular body.
-	    game.physics.p2.enable(sprite);
+        game.physics.p2.enable(sprite);
+
+        sprite.enableBody = true;
+        // sprite.physicsType = Phaser.physics.ARCADE;
         //  Modify a few body properties
         sprite.body.fixedRotation = true;
         // jump count
         jump_ctr = 0;
         // wings flapping animation
         fly = sprite.animations.add('fly');
+        //
+        //sprite.animations.play('fly', 20, false);
+        //
+        //game.world.setBounds()
+        sprite.body.collideWorldBounds = true;
+
+
         // input getters
         upKey = game.input.keyboard.addKey(Phaser.Keyboard.W);
         downKey = game.input.keyboard.addKey(Phaser.Keyboard.S);
@@ -73,10 +82,12 @@ window.onload = function() {
         rightKey = game.input.keyboard.addKey(Phaser.Keyboard.D);
         resetKey = game.input.keyboard.addKey(Phaser.Keyboard.E);
 
+        /*
         platforms = game.add.group();
         platforms.enableBody = true;
         ground = platforms.create(0, game.world.height - 64, 'wood');
         game.physics.p2.enable(ground);
+        */
 
     }
 
@@ -89,6 +100,7 @@ window.onload = function() {
         if (resetKey.justDown){
             sprite.body.setZeroForce();
             sprite.body.moveDown(2500);
+            //sprite.body.velocity.x
             jump_ctr = 0;
         }
         // left movement
