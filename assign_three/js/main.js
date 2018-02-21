@@ -44,10 +44,11 @@ window.onload = function() {
             var c = group.create(game.rnd.between(400, 1000), game.rnd.between(600, 1200), 'block', game.rnd.between(0,12));
         }
 
-
+        // Inventory, stored as array
         invent = new Array(dirt = 0, grass = 0, glass = 0);
 
-        text = game.add.text(sprite.position.x + 200, sprite.position.y + 200, "Inventory:\n" + "dirt: " + dirt + "\ngrass: " + grass, {font: "65px Arial",
+        text = game.add.text(sprite.position.x + 200, sprite.position.y + 200, "Inventory:\n" + "dirt: " + dirt + "\ngrass: " + grass, 
+        {font: "65px Arial",
         fill: "#ff0044",
         align: "center"});
 
@@ -64,6 +65,9 @@ window.onload = function() {
         sprite.rotation = game.physics.arcade.moveToPointer(sprite, 200, game.input.activePointer, 1400);
         game.camera.x = sprite.body.x - 400;
         game.camera.y = sprite.body.y - 400;
+
+        text.position.x = sprite.body.x - 400;
+        text.position.y = sprite.body.y - 400;
     }
 
     function render() {
