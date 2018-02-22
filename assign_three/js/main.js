@@ -73,6 +73,12 @@ window.onload = function() {
             timer.stop();
         }
 
+        /*
+        if (total > 12 && win != 20){
+
+        }
+        */
+
         if (formerTot != total){
             formerTot ++;
             sprite.position.x = game.rnd.between(0, 2400);
@@ -97,16 +103,16 @@ window.onload = function() {
 
     function render() {
 
-        game.debug.text('Find 20 Dimensional Stablizers Before Your 12th Shift! ' + win, 32, 32)
+        game.debug.text('Find 20 Dimensional Stablizers Before Your 12th Shift! ', 32, 32);
         game.debug.text('Time Until Character Shift: ' + timer.duration.toFixed(0), 32, 64);
-        game.debug.text('Shifting : ' + total, 32, 96)
+        game.debug.text('Current Shift: ' + total, 32, 96);
+        game.debug.text('Star Fragments: 20/'+win, 32, 128);
     }
 
     // Collision
     function collisionHandler(player, item) {
 
         item.kill();
-        //gotObjectText.alpha = 1.0;
         win += 1;
     }
 
