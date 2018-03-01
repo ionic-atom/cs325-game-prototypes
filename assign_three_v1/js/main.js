@@ -13,6 +13,10 @@ window.onload = function() {
         // ------------- MAKE ASSETS TO FIT -----
         game.load.image( 'bb', 'assets/outter_bound.png');
         game.load.image( 'sb', 'assets/inner_bound.png');
+
+        // Loading audio
+        game.load.audio('thrusters', 'assets/thrusters.ogg');
+        //game.load.audio('shift', 'assets/shift.mp3');
     }
 
     // Char
@@ -30,6 +34,9 @@ window.onload = function() {
     var formerTot;
 
     var background;
+
+    var thruster_sound;
+    //var shift_sound;
 
 
     
@@ -67,9 +74,16 @@ window.onload = function() {
         timer.start();
         win = 0;
 
+        thruster_sound = game.add.audio('thrusters');
+        thruster_sound.loopFull();
+        //thruster_sound.volume(0.5);
+        //shift_sound = game.add.audio('shift');
+        //shift_sound.play();
+        //shift_sound.volume = 0.5;
     }
 
     function updateCounter(){
+        //shift_sound.play();            
         total ++;
     }
     
@@ -80,13 +94,7 @@ window.onload = function() {
             timer.stop();
         }
 
-        /*
-        if (total > 12 && win != 20){
-
-        }
-        */
-
-        if (formerTot != total){
+        if (formerTot != total){  
             formerTot ++;
             sprite.position.x = game.rnd.between(0, 2400);
             sprite.position.y = game.rnd.between(0, 2400);
@@ -113,7 +121,7 @@ window.onload = function() {
         game.debug.text('Find 20 Dimensional Stablizers Before Your 12th Shift! ', 32, 32);
         game.debug.text('Time Until Character Shift: ' + timer.duration.toFixed(0), 32, 64);
         game.debug.text('Current Shift: ' + total, 32, 96);
-        game.debug.text('Star Fragments: 20/'+win, 32, 128);
+        game.debug.text('Star Fragments: '+ win +'/20', 32, 128);
     }
 
     // Collision
