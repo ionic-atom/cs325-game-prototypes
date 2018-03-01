@@ -22,10 +22,11 @@ window.onload = function() {
     // Needs to be 3 to win
     var win;
     // got the object
-    var gotObjectText;
+    //var gotObjectText;
 
     // timer
     var timer;
+    var fail_timer;
     var total;
     var formerTot;
 
@@ -33,6 +34,9 @@ window.onload = function() {
 
     var thruster_sound;
     var shift_sound;
+
+    var f_tot;
+    var fail_tot;
 
 
     
@@ -59,35 +63,59 @@ window.onload = function() {
             toFind.create(rX, rY, 'stars');
         }
 
-        gotObjectText = game.add.text(sprite.position.x, sprite.position.y, "Phew! You're Stable", {font: "30px Arial", fill: "#ff0044", align: "center"});
-        gotObjectText.alpha = 0.0;
-
         total = 0;
         formerTot = 0;
+
+        f_tot = 0;
+        fail_tot = 0;
+
+
         timer = game.time.create(false);
         timer.loop(10000, updateCounter, this);
 
         timer.start();
+
+        fail_timer = game.time.create(false);
+        fail_timer.loop(1000, updateFailCounter, this);
+
+        
+
         win = 0;
 
         thruster_sound = game.add.audio('thrusters');
-        thruster_sound.loopFull(0.4);
+        thruster_sound.loopFull(0.3);
         //thruster_sound.volume = 0.4;
         shift_sound = game.add.audio('shift');
         shift_sound.play();
-        shift_sound.volume = 0.3;
+        shift_sound.volume = 0.1;
     }
 
     function updateCounter(){
         shift_sound.play();            
         total ++;
     }
+
+    function updateFailCounter(){
+        shift_sound.play();
+        f_tot++;         
+        //total ++;
+    }
     
     function update() {
 
-        if (total < 13 && win == 15){
-            gotObjectText.alpha = 1.0;
+        if (total < 5 && win >= 15){
             timer.stop();
+        }
+
+        if (total >= 5){
+            timer.stop();
+            fail_timer.start();
+        }
+
+        if(fail_tot != f_tot){
+            fail_tot ++;
+            sprite.position.x = game.rnd.between(0, 2400);
+            sprite.position.y = game.rnd.between(0, 2400);
         }
 
         if (formerTot != total){  
@@ -102,9 +130,6 @@ window.onload = function() {
             console.log('item_recieved');
         }
 
-        gotObjectText.position.x = sprite.position.x;
-        gotObjectText.position.y = sprite.position.y;
-
         // Sprite controls of following the mouse
         sprite.rotation = game.physics.arcade.moveToPointer(sprite, 200, game.input.activePointer, 1400);
         game.camera.x = sprite.body.x - 400;
@@ -114,10 +139,20 @@ window.onload = function() {
 
     function render() {
 
-        game.debug.text('Find 20 Dimensional Stablizers Before Your 12th Shift! ', 32, 32);
-        game.debug.text('Time Until Character Shift: ' + timer.duration.toFixed(0), 32, 64);
-        game.debug.text('Current Shift: ' + total, 32, 96);
-        game.debug.text('Star Fragments: '+ win +'/15', 32, 128);
+        game.debug.text('Star Fragments: '+ win +'/15', 32, 32);
+        game.debug.text('Current Shift: ' + total, 32, 64);
+        if (win < 3){
+            game.debug.text('Find 15 Dimensional Stablizers Before Your 5th Shift!', 120, 600, '#DDDDDD');
+        }
+        
+        //game.debug.text('Time Until Character Shift: ' + timer.duration.toFixed(0), 32, 64);
+
+        if (total < 5 && win >= 15){
+            game.debug.text('YOU DID IT! YOU ARE STABLE!', 200, 600, '#DDDDDD', "30px Arial");
+        }
+        if (total == 5){
+            game.debug.text('YOU ARE STUCK IN A LOOP...', 200, 600, '#DDDDDD', "30px Arial");
+        }
     }
 
     // Collision
