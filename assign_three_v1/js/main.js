@@ -16,7 +16,7 @@ window.onload = function() {
 
         // Loading audio
         game.load.audio('thrusters', 'assets/thrusters.ogg');
-        //game.load.audio('shift', 'assets/shift.mp3');
+        game.load.audio('shift', 'assets/shift.mp3');
     }
 
     // Char
@@ -36,7 +36,7 @@ window.onload = function() {
     var background;
 
     var thruster_sound;
-    //var shift_sound;
+    var shift_sound;
 
 
     
@@ -76,14 +76,14 @@ window.onload = function() {
 
         thruster_sound = game.add.audio('thrusters');
         thruster_sound.loopFull();
-        //thruster_sound.volume(0.5);
-        //shift_sound = game.add.audio('shift');
-        //shift_sound.play();
-        //shift_sound.volume = 0.5;
+        thruster_sound.volume = 0.4;
+        shift_sound = game.add.audio('shift');
+        shift_sound.play();
+        shift_sound.volume = 0.3;
     }
 
     function updateCounter(){
-        //shift_sound.play();            
+        shift_sound.play();            
         total ++;
     }
     
