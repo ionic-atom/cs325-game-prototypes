@@ -7,12 +7,8 @@ window.onload = function() {
     function preload() {
         // Loading images
         game.load.spritesheet( 'char', 'assets/space_ship.png', 50, 50, 24 );
-        game.load.image( 'block', 'assets/char.png');
+        game.load.image( 'stars', 'assets/star_frag.png');
         game.load.image( 'background', 'assets/background_space.png');
-
-        // ------------- MAKE ASSETS TO FIT -----
-        game.load.image( 'bb', 'assets/outter_bound.png');
-        game.load.image( 'sb', 'assets/inner_bound.png');
 
         // Loading audio
         game.load.audio('thrusters', 'assets/thrusters.ogg');
@@ -57,10 +53,10 @@ window.onload = function() {
         toFind = game.add.physicsGroup();
 
         // Hiding sprites over world
-        for (var i = 0; i < 22; i++){
-            var rX = game.rnd.between(600, 2400);
-            var rY = game.rnd.between(600,2400);
-            toFind.create(rX, rY, 'block');
+        for (var i = 0; i < 17; i++){
+            var rX = game.rnd.between(400, 2300);
+            var rY = game.rnd.between(400,2300);
+            toFind.create(rX, rY, 'stars');
         }
 
         gotObjectText = game.add.text(sprite.position.x, sprite.position.y, "Phew! You're Stable", {font: "30px Arial", fill: "#ff0044", align: "center"});
@@ -75,8 +71,8 @@ window.onload = function() {
         win = 0;
 
         thruster_sound = game.add.audio('thrusters');
-        thruster_sound.loopFull();
-        thruster_sound.volume = 0.4;
+        thruster_sound.loopFull(0.4);
+        //thruster_sound.volume = 0.4;
         shift_sound = game.add.audio('shift');
         shift_sound.play();
         shift_sound.volume = 0.3;
@@ -89,7 +85,7 @@ window.onload = function() {
     
     function update() {
 
-        if (total < 13 && win == 20){
+        if (total < 13 && win == 15){
             gotObjectText.alpha = 1.0;
             timer.stop();
         }
@@ -121,7 +117,7 @@ window.onload = function() {
         game.debug.text('Find 20 Dimensional Stablizers Before Your 12th Shift! ', 32, 32);
         game.debug.text('Time Until Character Shift: ' + timer.duration.toFixed(0), 32, 64);
         game.debug.text('Current Shift: ' + total, 32, 96);
-        game.debug.text('Star Fragments: '+ win +'/20', 32, 128);
+        game.debug.text('Star Fragments: '+ win +'/15', 32, 128);
     }
 
     // Collision
