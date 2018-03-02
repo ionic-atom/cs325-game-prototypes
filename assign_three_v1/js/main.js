@@ -141,7 +141,7 @@ window.onload = function() {
 
         game.debug.text('Star Fragments: '+ win +'/15', 32, 32);
         game.debug.text('Current Shift: ' + total, 32, 64);
-        if (win < 3){
+        if (win < 3 && total < 5){
             game.debug.text('Find 15 Dimensional Stablizers Before Your 5th Shift!', 120, 600, '#DDDDDD');
         }
 
@@ -149,6 +149,7 @@ window.onload = function() {
             game.debug.text('YOU DID IT! YOU ARE STABLE!', 200, 600, '#DDDDDD', "30px Arial");
         }
         if (total == 5){
+            game.debug.text('...TOO LATE', 300, 550, '#DDDDDD', "30px Arial");
             game.debug.text('YOU ARE STUCK IN A LOOP...', 200, 600, '#DDDDDD', "30px Arial");
         }
     }
