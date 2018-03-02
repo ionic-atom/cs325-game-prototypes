@@ -97,8 +97,7 @@ window.onload = function() {
 
     function updateFailCounter(){
         shift_sound.play();
-        f_tot++;         
-        //total ++;
+        f_tot++;
     }
     
     function update() {
@@ -137,6 +136,7 @@ window.onload = function() {
 
     }
 
+    // Text on screen
     function render() {
 
         game.debug.text('Star Fragments: '+ win +'/15', 32, 32);
@@ -144,8 +144,6 @@ window.onload = function() {
         if (win < 3){
             game.debug.text('Find 15 Dimensional Stablizers Before Your 5th Shift!', 120, 600, '#DDDDDD');
         }
-        
-        //game.debug.text('Time Until Character Shift: ' + timer.duration.toFixed(0), 32, 64);
 
         if (total < 5 && win >= 15){
             game.debug.text('YOU DID IT! YOU ARE STABLE!', 200, 600, '#DDDDDD', "30px Arial");
