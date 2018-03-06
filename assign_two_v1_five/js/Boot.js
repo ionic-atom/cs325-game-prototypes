@@ -34,31 +34,12 @@ GameStates.makeBoot = function( game ) {
             //  Here we load the assets required for our Preloader state (in this case a background and a loading bar)
             game.load.spritesheet( 'chicken_fly', 'assets/chicken_fly.png', 40, 40, 10);
             game.load.image( 'sky', 'assets/sky.png');
+            game.load.image( 'platform', 'assets/ground.png')
             //game.load.image( 'wood', 'assets/ground.png');
     
         },
     
         create: function () {
-            // char
-            var sprite;
-            // platforms
-            var plank;
-            // input variables
-            var upKey;
-            var downKey;
-            var leftKey;
-            var rightKey;
-            var resetKey;
-            // Jump ctr ---- Can jump 4 times without collision
-            var jump_ctr;
-            // animation
-            var fly;
-            var platforms;
-            var ground;
-
-
-            
-    
             //  By this point the preloader assets have loaded to the cache, we've set the game settings
             //  So now let's start the real preloader going
             game.state.start('Preloader');
