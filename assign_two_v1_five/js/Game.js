@@ -47,12 +47,10 @@ GameStates.makeGame = function( game, shared ) {
     
              // adding in sky background
              game.add.image(0, 0, 'sky');
-             game.add.image(0, 600, 'sky');
+             //game.add.image(0, 600, 'sky');
              game.add.image(800, 0, 'sky');
-             game.add.image(800, 600, 'sky');
-             game.add.image(1600, 0, 'sky');
-             game.add.image(1600, 600, 'sky');
-             game.world.setBounds(0, 0, 2400, 1200);
+             //game.add.image(800, 600, 'sky');
+             game.world.setBounds(0, 0, 1600, 800);
              // Enable p2 physics, collision
              // I played around with the gravity to get the feel of this lose chicken
              // The restituion for falling is a graceful fall
@@ -60,7 +58,7 @@ GameStates.makeGame = function( game, shared ) {
              //game.physics.p2.gravity.x = 300;
              game.physics.p2.gravity.y = 300;
              //  Add a sprite
-             sprite = game.add.sprite(100, 1000, 'chicken_fly');
+             sprite = game.add.sprite(200, 600, 'chicken_fly');
              // plank = game.add.sprite(0, 500, 'wood');
              ///game.physics.p2.enable(plank);
              // Enable if for physics. This creates a default rectangular body.
@@ -84,21 +82,29 @@ GameStates.makeGame = function( game, shared ) {
 
             //var spriteMaterial = game.physics.p2.createMaterial('spriteMaterial', sprite.body);
             var worldMaterial = game.physics.p2.createMaterial('worldMaterial');
-            var boxMaterial = game.physics.p2.createMaterial('worldMaterial');
+            //var boxMaterial = game.physics.p2.createMaterial('worldMaterial');
 
             game.physics.p2.setWorldMaterial(worldMaterial, true, true, true, true);
 
             //  Floor of map
             var i = 0;
-            while (i < 2400)
+            while (i < 1600)
             {
-                var box = game.add.sprite(400 + i, 1175, 'platform');
+                var box = game.add.sprite(400 + i, 775, 'platform');
                 game.physics.p2.enable(box);
                 box.body.static = true;
-                box.body.setMaterial(boxMaterial);
+                box.body.setMaterial(worldMaterial);
                 i += 800;
             }
             i = 0;
+            while (i < 1600)
+            {
+                var box = game.add.sprite(400, 375, 'platform');
+                game.physics.p2.enable(box);
+                box.body.static = true;
+                box.body.setMaterial(worldMaterial);
+                i += 1600;
+            }
             //var groundPlayerCM = game.physics.p2.createContactMaterial(spriteMaterial, worldMaterial, { friction: 0.0 });
             //var groundBoxesCM = game.physics.p2.createContactMaterial(worldMaterial, boxMaterial, { friction: 0.6 });
  
