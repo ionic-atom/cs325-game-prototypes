@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8" />
-	<title>Phaser Basic Project Template</title>
+	<title>Chicken Jump</title>
 	<script src="js/phaser.min.js"></script>
 	<!-- Boot.js must come first since it creates the BasicGame object
 	that stores all the states. -->
@@ -29,79 +29,103 @@ body
 <body>
 <div id="game"></div>
 <div id="readme">
-<h2>Your game title</h2>
+<h2>Chicken Jump</h2>
 
 <ul>
 <li><strong>Originality:</strong>
-What is original about your game?
+The movement mechanic is what makes this game original, to be explained below.
 </li>
 
 <li><strong>Technical Merit:</strong>
 What is interesting about your game technology?
+
+The way the forces are applied, the movement feels loose but is vey tight when directional changes are applied.
 </li>
 
 <li><strong>Prototype Postmortem:</strong>
 What did you learn from this prototype?
 What was the easiest or hardest part of making it?
+
+I learned P2 is still crazy had to use even with more knowledge going into this iteration. I tried P2 again and it burned me, I learned I need to stick with ARCADE for right now.
+The hardest part was creating platforms that would be solid for the character to stand on.
 </li>
 
 <li><strong>Prototype Assets:</strong>
 Did you make your prototype assets from scratch? Did you borrow them? Cite your sources here.
 <ul>
-<li>Loading screen: self-made</li>
-<li>Puppy image: self-made</li>
-<li>Button: Phaser example <a href="https://phaser.io/examples/v2/buttons/action-on-click">Action On Click</a></li>
-<li>Bouncing Phaser image: <a href="https://phaser.io/download/logo">Phaser logo</a></li>
-<li>Music: "Poppers and Prosecco" Kevin MacLeod (<a href="incompetech.com">incompetech.com</a>). Licensed under <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons: By Attribution 3.0 License</a></li>
+<li>Loading screen: borrowed from template</li>
+<li>Loading background/ Game background: self-made</li>
+<li>Button: Phaser example, with a tiny bit of modification in looks <a href="https://phaser.io/examples/v2/buttons/action-on-click">Action On Click</a></li>
+<li>Music: I cannot give a name for this, its my dads music and he cannot remember who its by or what the name is. I tried to check the sound file and its d_b.mp3.
+<li>Chicken Character: self-made</li>
+<li>Plank platforms: self-made</li>
 </ul>
 </li>
 
 <li><strong>Prototype Closest Other Game:</strong>
-Which other game most closely resembles your game? If you are borrowing code from a Phaser Example, you must say so here. If you borrow code from elsewhere, you must say so here.
+I would say flappy bird with the constant keyboard input to keep going.
 <ul>
-<li>The code for this example is adapted from the <a href="https://github.com/photonstorm/phaser/tree/v2.6.2/resources/Project%20Templates/Basic">Phaser Basic Project Template</a></li>
+<li><a href="https://github.com/photonstorm/phaser/tree/v2.6.2/resources/Project%20Templates/Basic">Phaser Basic Project Template</a></li>
+<li><a href="https://phaser.io/examples/v2/p2-physics/platformer-material">My platform code is just a bit modified from this crate material example</a></li>
+<br>
+<li><a href="assign_two"></a>This is an iteraton of a pervious concept for Digital Assignement 2</li>
+<li>I have made it an actual game this time.</li>
+<li>I added music, the mechanics are different where it doesn't just count your jumps anymore its all movement except downward movement.</li>
+<li>The assets are done by myself, and there are more than just the chicken now. I improved the sky and the map is bigger.</li>
+<li>There is material now so the player can stand of platforms, last time I could not figure out how to do that.</li>
 </ul>
 </li>
 
 <li><strong>High Concept:</strong>
-A one-sentence summary of your game.
+An endurance platformer.
 </li>
 
 <li><strong>Theme:</strong>
-State which of the Storymatic themes you used.
+Chicken - since this was an iteration.
 </li>
 
 <li><strong>Mandated Variety:</strong>
-State which input, randomness, genre, and play style you used in this prototype.
+keyboard and platformer
 </li>
 
 <li><strong>Prototype Goal:</strong>
-What game mechanic is this prototype evaluating?
+Limited jumps and manual resetting of those jumps.
 </li>
 
 <li><strong>Player Experience Goals:</strong>
 What experience do you want players to have when playing your game?
+If I was able to get P2 to work for collisions for spikes that the player could lose upon touching, I would want them to feel calm but also I do need to keep my wits about me.
+But as of right now, it is lets just jump to the top, very chill experience.
 </li>
 
 <li><strong>Gameplay:</strong>
 A paragraph describing the actions the player can perform, the system dynamics, and the core mechanic. Include a concise explanation of the prototype’s inputs and their expected effects (how to play). You can also describe game play that is not in the prototype. You may include mock-up images for parts of the game not in the prototype.
+
+The player can move up (W), left (A), and right (D) which costs them a movement point. At three movement points they need to reset (E) which allows for three more movements to occur.
+The player may also move downward but that costs no movement points.
+The player will be shot down towards the ground everytime they reset their movement points to zero.
+The player may interrupt this reset by jumping up quickly.
 </li>
 
 <li><strong>Strategies:</strong>
 What player strategies do you expect will be effective at playing this game?
+Interuption of the reset mechanic, to get from platform to platform, but espically when I can figure out how to add spikes that will end the players run.
 </li>
 
 <li><strong>Story/Setting/Premise:</strong>
-A paragraph about the world your game is set in and who the characters are. What makes the game world and its occupants unique and interesting? Do the tokens represent something? If the game has a backstory, mention it here. If the game is abstract, then say so.
-How will the dramatic tension interact with the gameplay tension?
+There is Todd the chicken. The world is a vertical course which makes for this is all you know and you must climb it type of situation.
+You just have a nice evening making it to the top of the map.
 </li>
 
 <li><strong>Target Audience:</strong>
 A single sentence that describes the demographic you're trying to reach.
+
+With game ending events, regular gamers who just would like to have a platformer to play.
+But with the current version, you just jump up. It's a game about nothing.
 </li>
 
 <li><strong>Play Time:</strong>
-How long does your game take to play?
+It takes about a minute at its current build.
 </li>
 
 </ul>
