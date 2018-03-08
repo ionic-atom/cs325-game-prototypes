@@ -34,7 +34,11 @@ GameStates.makeBoot = function( game ) {
             //  Here we load the assets required for our Preloader state (in this case a background and a loading bar)
             game.load.spritesheet( 'chicken_fly', 'assets/chicken_fly.png', 40, 40, 10);
             game.load.image( 'sky', 'assets/sky.png');
-            game.load.image( 'platform', 'assets/ground.png')
+            game.load.image( 'platform', 'assets/ground.png');
+            game.load.image( 'grass', 'assets/grass.png');
+            game.load.image( 'spike', 'assets/spikes.png');
+            game.load.image( 'half_p', 'assets/half_wood.png');
+            game.load.image( 'small_w', 'assets/small_wood.png');
             //game.load.image( 'wood', 'assets/ground.png');
     
         },
