@@ -41,13 +41,16 @@ GameStates.makeGame = function( game, shared ) {
     var spikesCG;
 
     var reset_button;
+
+    var musik
     
     function quitGame() {
 
         //  Here you should destroy anything you no longer need.
         //  Stop music, delete sprites, purge caches, free resources, all that good stuff.
-
+        musik.stop();
         //  Then let's go back to the main menu.
+        
         game.state.start('MainMenu');
 
     }
@@ -55,6 +58,9 @@ GameStates.makeGame = function( game, shared ) {
     return {
     
         create: function () {
+
+            musik = game.add.audio('titleMusic');
+            musik.play();
 
             game.add.image(0, 0, 'sky');
             game.world.setBounds(0, 0, 1600, 3200);
@@ -186,8 +192,8 @@ GameStates.makeGame = function( game, shared ) {
 
             game.debug.text('Movements Used: 3/'+jump_ctr, 32, 32, '#FFFF00', "30px Times New Roman");
 
-            game.debug.text('X: '+sprite.body.x, 32, 128);
-            game.debug.text('Y: '+sprite.body.y, 32, 160);
+            //game.debug.text('X: '+sprite.body.x, 32, 128);
+            //game.debug.text('Y: '+sprite.body.y, 32, 160);
 
             if (sprite.body.y < 950){
                 if(sprite.body.x < 400){

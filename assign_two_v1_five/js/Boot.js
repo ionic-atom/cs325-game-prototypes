@@ -39,6 +39,7 @@ GameStates.makeBoot = function( game ) {
             game.load.image( 'spike', 'assets/spikes.png');
             game.load.image( 'half_p', 'assets/half_wood.png');
             game.load.image( 'small_w', 'assets/small_wood.png');
+            game.load.audio('titleMusic', ['assets/b_d.mp3']);
             //game.load.atlas('playButton', 'assets/play_butt.png', 'assets/play_button.json');
             //game.load.image( 'wood', 'assets/ground.png');
     
