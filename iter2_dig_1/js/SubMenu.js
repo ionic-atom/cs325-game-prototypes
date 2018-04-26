@@ -32,6 +32,7 @@ GameStates.makeSubMenu = function( game, shared ) {
     var setting_style = null;
 
     // Parential Settings
+    /*
     var noStranger = false;
     var treatAnimal= false;
     var treatOther = false;
@@ -42,6 +43,7 @@ GameStates.makeSubMenu = function( game, shared ) {
     var noViolence = false;
     var workEthic = false;
     var scienceValidity = false;
+    */
     
     function startMenu(pointer) {
 
@@ -52,102 +54,102 @@ GameStates.makeSubMenu = function( game, shared ) {
 
     // Functions to set the settings that the parent wants  
     function setnS() {
-        if (noStranger == false){
-            noStranger = true;
+        if (shared.noStranger == false){
+            shared.noStranger = true;
             nS_text.addColor('#00fe00', 0);
         }
         else {
-            noStranger = false;
+            shared.noStranger = false;
             nS_text.addColor('#ffffff', 0);
         }
     }
     function settA() {
-        if (treatAnimal == false){
-            treatAnimal = true;
+        if (shared.treatAnimal == false){
+            shared.treatAnimal = true;
             tA_text.addColor('#00fe00', 0);
         }
         else {
-            treatAnimal = false;
+            shared.treatAnimal = false;
             tA_text.addColor('#ffffff', 0);
         }
     }
     function settO() {
-        if (treatOther == false){
-            treatOther = true;
+        if (shared.treatOther == false){
+            shared.treatOther = true;
             tO_text.addColor('#00fe00', 0);
         }
         else {
-            treatOther = false;
+            shared.treatOther = false;
             tO_text.addColor('#ffffff', 0);
         }
     }
     function setsD() {
-        if (simpleDecision == false){
-            simpleDecision = true;
+        if (shared.simpleDecision == false){
+            shared.simpleDecision = true;
             sD_text.addColor('#00fe00', 0);
         }
         else {
-            simpleDecision = false;
+            shared.simpleDecision = false;
             sD_text.addColor('#ffffff', 0);
         }
     }
     function settP() {
-        if (treatProperty == false){
-            treatProperty = true;
+        if (shared.treatProperty == false){
+            shared.treatProperty = true;
             tP_text.addColor('#00fe00', 0);
         }
         else {
-            treatProperty = false;
+            shared.treatProperty = false;
             tP_text.addColor('#ffffff', 0);
         }
     }
     function setaE() {
-        if (academiaEthic == false){
-            academiaEthic = true;
+        if (shared.academiaEthic == false){
+            shared.academiaEthic = true;
             aE_text.addColor('#00fe00', 0);
         }
         else {
-            academiaEthic = false;
+            shared.academiaEthic = false;
             aE_text.addColor('#ffffff', 0);
         }
     }
     function seteT() {
-        if (electronicTime == false){
-            electronicTime = true;
+        if (shared.electronicTime == false){
+            shared.electronicTime = true;
             eT_text.addColor('#00fe00', 0);
         }
         else {
-            electronicTime = false;
+            shared.electronicTime = false;
             eT_text.addColor('#ffffff', 0);
         }
     }
     function setnV() {
-        if (noViolence == false){
-            noViolence = true;
+        if (shared.noViolence == false){
+            shared.noViolence = true;
             nV_text.addColor('#00fe00', 0);
         }
         else {
-            noViolence = false;
+            shared.noViolence = false;
             nV_text.addColor('#ffffff', 0);
         }
     }
     function setwE() {
-        if (workEthic == false){
-            workEthic = true;
+        if (shared.workEthic == false){
+            shared.workEthic = true;
             wE_text.addColor('#00fe00', 0);
         }
         else {
-            workEthic = false;
+            shared.workEthic = false;
             wE_text.addColor('#ffffff', 0);
         }
     }
     function setsV() {
-        if (scienceValidity == false){
-            scienceValidity = true;
+        if (shared.scienceValidity == false){
+            shared.scienceValidity = true;
             sV_text.addColor('#00fe00', 0);
         }
         else {
-            scienceValidity = false;
+            shared.scienceValidity = false;
             sV_text.addColor('#ffffff', 0);
         }
     }
