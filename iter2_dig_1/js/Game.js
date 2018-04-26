@@ -77,12 +77,12 @@ GameStates.makeGame = function( game, shared ) {
 
     // TO ===========================================
     var tO_questions = [
-        [ 'treatment of others q0' ],
+        [ 'Someone is mean to you, what do you do?' ],
         [ 'treatment of others q1' ],
         [ 'treatment of others q2' ]
     ];
     var tO_answers = [
-        [ '-', '-', '-' ],
+        [ 'Be mean to them', 'Just ignore them, even if they made you sad', 'Tell an adult, if you feel uncomfortable' ],
         [ '-', '-', '-'],
         [ '-', '-', '-' ]
     ];
@@ -149,12 +149,12 @@ GameStates.makeGame = function( game, shared ) {
 
     // ET ===========================================
     var eT_questions = [
-        [ 'responsability of electronics q0' ],
+        [ 'Should you bully people over the internet?' ],
         [ 'responsability of electronics q1' ],
         [ 'responsability of electronics q2' ]
     ];
     var eT_answers = [
-        [ '-', '-', '-' ],
+        [ 'Sure, they are just a username', 'Yes, they we\'re being mean', 'No, there is a person behind there' ],
         [ '-', '-', '-'],
         [ '-', '-', '-' ]
     ];
