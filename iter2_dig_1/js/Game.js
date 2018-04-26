@@ -59,12 +59,12 @@ GameStates.makeGame = function( game, shared ) {
 
     // TA ===========================================
     var tA_questions = [
-        [ 'animal treatment q0' ],
+        [ 'You see someone hurting their pet, should you tell an adult?' ],
         [ 'animal treatment q1' ],
         [ 'animal treatment q2' ]
     ];
     var tA_answers = [
-        [ '-', '-', '-' ],
+        [ 'I am too hurt by seeing it to talk about it', 'No I do not like animals, I do not care', 'Yes I love aniamls, I want them to be stopped' ],
         [ '-', '-', '-'],
         [ '-', '-', '-' ]
     ];
@@ -95,7 +95,7 @@ GameStates.makeGame = function( game, shared ) {
 
     // SD ===========================================
     var sD_questions = [
-        [ 'simple decision q0' ],
+        [ 'simple decision q' ],
         [ 'simple decision q1' ],
         [ 'simple decision q2' ]
     ];
@@ -113,12 +113,12 @@ GameStates.makeGame = function( game, shared ) {
 
     // TP ===========================================
     var tP_questions = [
-        [ 'property treatment q0' ],
+        [ 'You see something you want in a neighbors yard, should you take it?' ],
         [ 'property treatment q1' ],
         [ 'property treatment q2' ]
     ];
     var tP_answers = [
-        [ '-', '-', '-' ],
+        [ 'I will ask them if I can have it', 'Of course I will take it', 'They are mean, time to teach them a lesson' ],
         [ '-', '-', '-'],
         [ '-', '-', '-' ]
     ];
@@ -131,13 +131,13 @@ GameStates.makeGame = function( game, shared ) {
 
     // AE ===========================================
     var aE_questions = [
-        [ 'school enviroment q0' ],
-        [ 'school enviroment q1' ],
+        [ 'If you have a chance to cheat on a test, is it the right thing to do?' ],
+        [ 'Should you do your homework or play first?' ],
         [ 'school enviroment q2' ]
     ];
     var aE_answers = [
-        [ '-', '-', '-' ],
-        [ '-', '-', '-'],
+        [ 'Sure, I will not get caught', 'No, I will do my own work and get my deserved grade', 'I just want to check my answers...' ],
+        [ 'Play', 'Homework', 'I will do neither!'],
         [ '-', '-', '-' ]
     ];
     var aE_points = [
@@ -167,12 +167,12 @@ GameStates.makeGame = function( game, shared ) {
 
     // NV ===========================================
     var nV_questions = [
-        [ 'violence q0' ],
+        [ 'Does violence solve problems?' ],
         [ 'violence q1' ],
         [ 'violence q2' ]
     ];
     var nV_answers = [
-        [ '-', '-', '-' ],
+        [ 'Absoutely', 'No', 'Sometimes' ],
         [ '-', '-', '-'],
         [ '-', '-', '-' ]
     ];
@@ -185,12 +185,12 @@ GameStates.makeGame = function( game, shared ) {
 
     // wE ===========================================
     var wE_questions = [
-        [ 'work ethic q0' ],
+        [ 'You are asked to help with chores, what do you do?' ],
         [ 'work ethic q1' ],
         [ 'work ethic q2' ]
     ];
     var wE_answers = [
-        [ '-', '-', '-' ],
+        [ 'Just do not do them, I hate chores', 'Do the chores asked of you', 'Tell your siblings to do them' ],
         [ '-', '-', '-'],
         [ '-', '-', '-' ]
     ];
@@ -203,12 +203,12 @@ GameStates.makeGame = function( game, shared ) {
 
     // SV ===========================================
     var sV_questions = [
-        [ 'science q0' ],
+        [ 'Can a fact be proven wrong?' ],
         [ 'science q1' ],
         [ 'science q2' ]
     ];
     var sV_answers = [
-        [ '-', '-', '-' ],
+        [ 'Yes', 'No', '-' ],
         [ '-', '-', '-'],
         [ '-', '-', '-' ]
     ];
