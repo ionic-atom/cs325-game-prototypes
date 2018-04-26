@@ -95,7 +95,7 @@ GameStates.makeGame = function( game, shared ) {
 
     // SD ===========================================
     var sD_questions = [
-        [ 'simple decision q' ],
+        [ 'simple decision q0' ],
         [ 'simple decision q1' ],
         [ 'simple decision q2' ]
     ];
@@ -150,8 +150,8 @@ GameStates.makeGame = function( game, shared ) {
     // ET ===========================================
     var eT_questions = [
         [ 'Should you bully people over the internet?' ],
-        [ 'responsability of electronics q1' ],
-        [ 'responsability of electronics q2' ]
+        [ 'responsibility of electronics q1' ],
+        [ 'responsibility of electronics q2' ]
     ];
     var eT_answers = [
         [ 'Sure, they are just a username', 'Yes, they we\'re being mean', 'No, there is a person behind there' ],
