@@ -37,8 +37,8 @@ GameStates.makeMainMenu = function( game, shared ) {
     
             game.stage.backgroundColor = '#000000'
     
-            playButton = game.add.button( 303, 250, 'begin_button', startGame, null, 'no', 'no', 'yes');
-            psetButton = game.add.button( 303, 400, 'setup_button', startSub, null, 'no', 'no', 'yes');
+            playButton = game.add.button( 300, 250, 'begin_button', startGame, null, 'no', 'no', 'yes');
+            psetButton = game.add.button( 300, 400, 'setup_button', startSub, null, 'no', 'no', 'yes');
         },
     
         update: function () {

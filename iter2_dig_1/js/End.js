@@ -17,10 +17,10 @@ GameStates.makeEnd = function( game, shared ) {
         create: function () {
     
             // Background
-            game.add.sprite(0, 0, 'titlePage');
+        
 
             // To go back to the main menu with the settings applied!
-            endButton = game.add.button( 10, 10, 'playButton', startMenu, null, 'over', 'out', 'down');
+            endButton = game.add.button( 300, 250, 'quit_button', startMenu, null, 'no', 'no', 'yes');
 
         },
     
