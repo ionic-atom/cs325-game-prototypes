@@ -416,6 +416,10 @@ GameStates.makeGame = function( game, shared ) {
             graphics.lineStyle(2, 0x0000FF, 1);
             graphics.drawRect(50, 105, 700, 100);
 
+            var graphics1 = game.add.graphics(0, 0);
+            graphics1.lineStyle(2, 0x0000FF, 1);
+            graphics1.drawRect(50, 225, 700, 225);
+
 
             // Add some text using a CSS style.
             // Center it in X, and position its top 15 pixels from the top of the world.

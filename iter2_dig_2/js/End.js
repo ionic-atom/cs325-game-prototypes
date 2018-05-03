@@ -17,6 +17,10 @@ GameStates.makeEnd = function( game, shared ) {
         create: function () {
     
             // Background
+
+            var graphics2 = game.add.graphics(0, 0);
+            graphics2.lineStyle(2, 0xff0000, 1);
+            graphics2.drawRect(50, 225, 700, 245);
         
 
             // To go back to the main menu with the settings applied!

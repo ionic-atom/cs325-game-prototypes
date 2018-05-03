@@ -34,6 +34,18 @@ GameStates.makeMainMenu = function( game, shared ) {
     
             //music = game.add.audio('titleMusic');
             //music.play();
+
+            var graphics0 = game.add.graphics(0, 0);
+            graphics0.lineStyle(2, 0x0000ff, 1);
+            graphics0.drawRect(250, 45, 500, 350);
+
+            var graphics1 = game.add.graphics(0, 0);
+            graphics1.lineStyle(2, 0xff0000, 1);
+            graphics1.drawRect(150, 35, 612, 450);
+
+            var graphics2 = game.add.graphics(0, 0);
+            graphics2.lineStyle(2, 0xffff00, 1);
+            graphics2.drawRect(50, 25, 722, 550);
     
             game.stage.backgroundColor = '#000000'
     
