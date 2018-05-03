@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Phaser Basic Project Template</title>
+	<script src="js/phaser.min.js"></script>
+	<!-- Boot.js must come first since it creates the BasicGame object
+	that stores all the states. -->
+	<script src="js/Boot.js"></script>
+	<script src="js/Preloader.js"></script>
+	<script src="js/MainMenu.js"></script>
+	<script src="js/Game.js"></script>
+	<script src="js/SubMenu.js"></script>
+	<script src="js/End.js"></script>
+	<!-- main.js must come last since it references the other ones. -->
+	<script src="js/main.js"></script>
+
+<style>
+body
+{
+    color: #777;
+    font-family: "Avenir", Verdana, sans-serif;
+}
+#readme
+{
+    margin-top: 10px;
+}
+</style>
+
+</head>
+<body>
+<div id="game"></div>
+<div id="readme">
+<h2>Decision</h2>
+
+<ul>
+<li><strong>WARNING:</strong>
+I have not been able to figure out the scoring mechanic yet, and not all quesitons have been developed.
+</li>
+
+<li><strong>Originality:</strong>
+The rewards are set by the parents and the content of the game is deteremined by the parents.
+</li>
+
+<li><strong>Technical Merit:</strong>
+I think the button layout is very nice.
+</li>
+
+<li><strong>Prototype Postmortem:</strong>
+I learned alot about buttons and json format.
+The hardest part was the question answering portion to match what the correct answer was to the button clicked. Since the questions were ever changing.
+</li>
+
+<li><strong>Prototype Assets:</strong>
+I made my assets from scratch and used some the graphics package from phaser
+<li>Loading screen: Professor Gingold : I forgot to make one</li>
+</li>
+
+<li><strong>Prototype Closest Other Game:</strong>
+Learning or memory helping games, I cannot think of any off the top of my head but I know they're out there.
+</li>
+
+<li><strong>High Concept:</strong>
+A decision making game that focuses on topics wanted by the parents.
+</li>
+
+<li><strong>Theme:</strong>
+None.
+</li>
+
+<li><strong>Mandated Variety:</strong>
+Input is all through buttons.
+</li>
+
+<li><strong>Prototype Goal:</strong>
+Parental maniuplaiton of the games content and reward system.
+</li>
+
+<li><strong>Player Experience Goals:</strong>
+A time of learning with a sweet reward at the end of parents choice. In the next iteration there will be a list to choose from and a custom input.
+</li>
+
+<li><strong>Gameplay:</strong>
+First the parent will boot up the game and go to Parental Set-up and choose the categories they want the child to go through. Next the child will then press Start, having 10 seconds per question. They will have three answers to choose from, they will just click one, the correct answer hopfully. At the end of the game there will be the final score to see if they won and recieve their reward. This game is meant to be played once a day, so rewards cannot become crazy.
+</li>
+
+<li><strong>Strategies:</strong>
+Using around 8 of the 10 seconds to make the decison so they have a solid confidence in their choice, but enough time to answer while choosing the correct one.
+</li>
+
+<li><strong>Story/Setting/Premise:</strong>
+The game is different, it is an educational tool mixed with a reward system
+</li>
+
+<li><strong>Target Audience:</strong>
+Children and Guardians together, this game does not work without that dynamic)
+</li>
+
+<li><strong>Play Time:</strong>
+How long does your game take to play?
+5 minutes, with all the 10 second questions and with all the 30 second questions.
+</li>
+
+</ul>
+</div>
+</body>
+</html>
