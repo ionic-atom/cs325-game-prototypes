@@ -151,13 +151,13 @@ GameStates.makeGame = function( game, shared ) {
     // ET ===========================================
     var eT_questions = [
         [ 'Should you bully people over the internet?' ],
-        [ '' ],
-        [ 'responsibility of electronics q2' ]
+        [ 'Electronic Treatment: They are just electronics and can be replaced easily.' ],
+        [ 'I should try and scam people over the internet to giving me money.' ]
     ];
     var eT_answers = [
         [ 'Sure, they are just a username', 'Yes, they we\'re being mean', 'No, there is a person behind there' ],
-        [ '-', '-', '-'],
-        [ '-', '-', '-' ]
+        [ 'True', 'False', '-'],
+        [ 'False', 'True', '-' ]
     ];
     var eT_points = [
         [ '-' ],
@@ -169,13 +169,13 @@ GameStates.makeGame = function( game, shared ) {
     // NV ===========================================
     var nV_questions = [
         [ 'Does violence solve problems?' ],
-        [ 'violence q1' ],
-        [ 'violence q2' ]
+        [ 'If you are being attacked should you fight back?' ],
+        [ 'You should try to reason with your words, not your fists.' ]
     ];
     var nV_answers = [
         [ 'Absoutely', 'No', 'Sometimes' ],
-        [ '-', '-', '-'],
-        [ '-', '-', '-' ]
+        [ 'Yes', 'No', 'probably'],
+        [ 'False', 'True', '-' ]
     ];
     var nV_points = [
         [ '-' ],
@@ -187,13 +187,13 @@ GameStates.makeGame = function( game, shared ) {
     // wE ===========================================
     var wE_questions = [
         [ 'You are asked to help with chores, what do you do?' ],
-        [ 'work ethic q1' ],
-        [ 'work ethic q2' ]
+        [ 'You can take someone elses work for your own.' ],
+        [ 'You should always try your best in all situations.' ]
     ];
     var wE_answers = [
         [ 'Just do not do them, I hate chores', 'Do the chores asked of you', 'Tell your siblings to do them' ],
-        [ '-', '-', '-'],
-        [ '-', '-', '-' ]
+        [ 'True', 'False', '-'],
+        [ 'No', 'Yes', '-' ]
     ];
     var wE_points = [
         [ '-' ],
@@ -205,13 +205,13 @@ GameStates.makeGame = function( game, shared ) {
     // SV ===========================================
     var sV_questions = [
         [ 'Can a fact be proven wrong?' ],
-        [ 'science q1' ],
-        [ 'science q2' ]
+        [ 'Should you trust science?' ],
+        [ 'Is an opinion a fact?' ]
     ];
     var sV_answers = [
         [ 'Yes', 'No', '-' ],
-        [ '-', '-', '-'],
-        [ '-', '-', '-' ]
+        [ 'No', 'Yes', '-'],
+        [ 'Absoutely', 'My opinions are face.', 'No' ]
     ];
     var sV_points = [
         [ '-' ],

@@ -22,13 +22,13 @@ GameStates.makeEnd = function( game, shared ) {
             // To go back to the main menu with the settings applied!
             endButton = game.add.button( 300, 250, 'quit_button', startMenu, null, 'no', 'no', 'yes');
 
-            var setting_style = { font: "18px Verdana", fill: "#ffffff", align: "center" };
+            var setting_style = { font: "40px Verdana", fill: "#ffffff", align: "center" };
 
             if (shared.win == true){
-                var score_text = game.add.text( 120, 100, "you win", setting_style );
+                var score_text = game.add.text( 300, 400, "you win", setting_style );
             }
             else{
-                var score_text = game.add.text( 120, 100, "you lose", setting_style );
+                var score_text = game.add.text( 100, 400, "You lose.. Try Again Tomorrow", setting_style );
             }
 
         },
