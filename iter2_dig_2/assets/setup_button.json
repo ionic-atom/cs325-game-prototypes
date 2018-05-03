@@ -1,0 +1,28 @@
+{"frames": [
+
+{
+	"filename": "no",
+	"frame": {"x":10,"y":110,"w":180,"h":80},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":80},
+	"sourceSize": {"w":180,"h":80}
+},
+{
+	"filename": "yes",
+	"frame": {"x":10,"y":10,"w":180,"h":80},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":80},
+	"sourceSize": {"w":180,"h":80}
+}],
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "setup_button.png",
+	"format": "RGBA8888",
+	"size": {"w":180,"h":80},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:94df81041404a206a4e9cd597a1e3495$"
+}
+}
