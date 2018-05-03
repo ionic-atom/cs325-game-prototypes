@@ -164,6 +164,17 @@ GameStates.makeSubMenu = function( game, shared ) {
             // To go back to the main menu with the settings applied!
             menuButton = game.add.button( 5, 5, 'back_button', startMenu, null, 'no', 'no', 'yes');
 
+            var graphics0 = game.add.graphics(0, 0);
+            graphics0.lineStyle(2, 0xff0000, 1);
+            graphics0.drawRect(570, 45, 150, 150);
+
+            var graphics1 = game.add.graphics(0, 0);
+            graphics1.lineStyle(2, 0x0000ff, 1);
+            graphics1.drawRect(600, 75, 100, 100);
+
+            var graphics2 = game.add.graphics(0, 0);
+            graphics2.lineStyle(2, 0xffff00, 1);
+            graphics2.drawRect(630, 105, 50, 50);
             
             nS = game.add.button( 60, 100, 'small_button', setnS, null, 'no', 'no', 'yes');
             tA = game.add.button( 60, 150, 'small_button', settA, null, 'no', 'no', 'yes');
