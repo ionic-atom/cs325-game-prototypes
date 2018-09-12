@@ -106,7 +106,7 @@ window.onload = function() {
         game.debug.text('Find 20 Dimensional Stablizers Before Your 12th Shift! ', 32, 32);
         game.debug.text('Time Until Character Shift: ' + timer.duration.toFixed(0), 32, 64);
         game.debug.text('Current Shift: ' + total, 32, 96);
-        game.debug.text('Star Fragments: 20/'+win, 32, 128);
+        game.debug.text('Star Fragments: '+ win +'/20', 32, 128);
     }
 
     // Collision
